@@ -1,0 +1,35 @@
+000001191029
+000002191029
+000003191029
+000004191029
+000005191029
+000006191029     A          R RECORD1
+000013191101     A                                  4 13'Rates:'
+000014191102     A                                 10 13'Totals:'
+000015191101     A                                  5 17'Day Rate:'
+000016191101     A                                  6 17'Afternoon Rate:'
+000017191101     A                                  7 17'Night Rate:'
+000018191102     A                                 11 16'Regular Pay:'
+000019191102     A                                 12 16'Overtime Pay:'
+000020191102     A                                 13 16'Company Payout:'
+000021191101     A            DAYRATE   R    5  2O  5 41REFFLD(SHIFTRATES/DAYRATE +
+000022191029     A                                      SENECAPAY/SHIFTRATES)
+000023191031     A                                      EDTCDE(1)
+000025191101     A            AFTNRATE  R    5  2O  6 41REFFLD(SHIFTRATES/AFTNRATE +
+000026191029     A                                      SENECAPAY/SHIFTRATES)
+000027191031     A                                      EDTCDE(1)
+000029191101     A            NIGHTRATE R    5  2O  7 41REFFLD(SHIFTRATES/NIGHTRATE +
+000030191029     A                                      SENECAPAY/SHIFTRATES)
+000031191031     A                                      EDTCDE(1)
+000032191102     A            TOTREGPAY      9  2O 11 41EDTCDE(1)
+000033191102     A            TOTOVTPAY      9  2O 12 41EDTCDE(1)
+000034191102     A            TOTWKPAY       9  2O 13 40EDTCDE(1 $)
+000035191101     A                                  1  2USER
+000036191101     A                                  2  2'Mohammad Sharafifar'
+000037191101     A                                  1 68DATE
+000038191101     A                                      EDTCDE(Y)
+000039191101     A                                  2 68TIME
+000040191102     A                                  3 15'S E N E C A payroll program comple-
+000041191101     A                                      ted'
+000042191102     A            SHIFTTYPE     30   O  9 20
+000100      

@@ -1,0 +1,79 @@
+000108191006             PGM
+000109191006             DCLF       LAB4DSP
+000110191006             DCL        &SGON  *CHAR 13
+000111191006             DCL        &USR     *CHAR 10
+000112191006             DCL        &USRMSGQ *CHAR 10
+000113191006             DCL        &USRMSGQLIB *CHAR 10
+000115191006             DCL        &MAXISG *CHAR 6
+000116191006             DCL        &AJOBM *DEC LEN(5 0)
+000119191006
+000120191006             SNDRCVF
+000123191006             DOWHILE    (&IN03='0')
+000124191007             IF         (&IN21='1') CALL QUSCMDLN
+000128191007             ELSE       SELECT
+000141191006             WHEN       (&OPTION = '1' *OR &OPTION = '01') CALLSUBR OPTION1
+000142191006             WHEN       (&OPTION = '2' *OR &OPTION = '02') CALLSUBR OPTION2
+000143191006             WHEN       (&OPTION = '3' *OR &OPTION = '03') CALLSUBR OPTION3
+000144191006             WHEN       (&OPTION = '4' *OR &OPTION = '04') CALLSUBR OPTION4
+000145191006             WHEN       (&OPTION = '5' *OR &OPTION = '05') CALLSUBR OPTION5
+000146191006             OTHERWISE  CHGVAR &IN30 '1'
+000147191006             ENDSELECT
+000148191006
+000155191006             SNDRCVF
+000156191006             CALLSUBR   CLEAR
+000158191006             ENDDO
+000159191006
+000160191006/*SUBROUTINES*/
+000161191006             SUBR       OPTION1
+000162191006             RTVUSRPRF  USRPRF(*CURRENT) RTNUSRPRF(&USR) PRVSIGN(&SGON)
+000163191006             CHGVAR     &MSGTXT1 ('Previous sign on for user ' *BCAT &USR *BCAT 'was on ' +
+000164191006                          *BCAT %SST(&SGON 4 2) *TCAT '/' *CAT %SST(&SGON 6 2) *TCAT '/' *CAT +
+000165191006                          %SST(&SGON 2 2) *TCAT ' ' *CAT %SST(&SGON 8 2) *TCAT ':' *CAT +
+000166191006                          %SST(&SGON 10 2) *TCAT ':' *CAT %SST(&SGON 12 2))
+000167191006             CHGVAR     &MSGTXT2 ('CLLE Programs can report on and manage the users on the +
+000168191006                          system')
+000169191006             ENDSUBR
+000170191006
+000171191006             SUBR       OPTION2
+000172191006             RTVUSRPRF  USRPRF(*CURRENT) RTNUSRPRF(&USR) MSGQ(&USRMSGQ) MSGQLIB(&USRMSGQLIB)
+000173191006             CHGVAR     &MSGTXT1 ('Signed on Users message queue is ' *BCAT &USRMSGQLIB *TCAT +
+000174191006                          '/' *CAT &USRMSGQ)
+000175191006             CHGVAR     &MSGTXT2 ('CLLE Programs can report on and manage the users on the +
+000176191006                          system')
+000177191006             ENDSUBR
+000178191006
+000179191006             SUBR       OPTION3
+000180191006             RTVSYSVAL  SYSVAL(QMAXSIGN) RTNVAR(&MAXISG)
+000181191006             CHGVAR     &MSGTXT1 ('Maximum invalid signons allowed: ' *BCAT &MAXISG *BCAT +
+000182191006                          '(tries)')
+000183191006             CHGVAR     &MSGTXT2 ('CLLE Programs can report on the system and manage system +
+000184191006                          wide settings')
+000185191006             ENDSUBR
+000186191006
+000187191006             SUBR       OPTION4
+000188191006             RTVSYSVAL  SYSVAL(QACTJOB) RTNVAR(&AJOBM)
+000189191006             CHGVAR     &MSGTXT1 ('Initial number of active jobs for which storage is +
+000190191006                          allocated is: ' *BCAT %CHAR(&AJOBM))
+000191191006             CHGVAR     &MSGTXT2 ('CLLE Programs can report on the system and manage system +
+000192191006                          wide settings')
+000193191006             ENDSUBR
+000194191006
+000195191006             SUBR       OPTION5
+000196191006             CHGVAR     &IN21 '0'
+000197191006             CHGCURLIB  BCI433LIB
+000198191006             DSPLIBL
+000199191006             CALL       INSURERPGB
+000200191022             CHGCURLIB  DF433E25
+000201191006             DSPLIBL
+000202191006             CHGVAR     &MSGTXT1 ('The Instructor Version of the Ticket RPGLE program was run')
+000203191006             CHGVAR     &MSGTXT2 ('CLLE Programs can manage how an RPGLE Business Application +
+000204191006                          is run')
+000205191006             ENDSUBR
+000206191006
+000207191006             SUBR       CLEAR
+000208191006             CHGVAR     &IN30 '0'
+000209191006             CHGVAR     &MSGTXT1 (' ')
+000210191006             CHGVAR     &MSGTXT2 (' ')
+000211191006             ENDSUBR
+000212191006
+000213191006             ENDPGM

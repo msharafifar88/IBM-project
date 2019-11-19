@@ -1,0 +1,41 @@
+000001191003     A          R GETDATA
+000002191003     A                                  1  3USER
+000003191003     A                                  1 71DATE
+000004191003     A                                      EDTCDE(Y)
+000005191003     A                                  2 25'INSURANCE QUOTE'
+000006191003     A            BIRTHDATE       L  B  4 17
+000007191003     A  60                                  DSPATR(PR)
+000008191003     A                                  5  5'Gender'
+000009191003     A            GENDER         1   B  5 17VALUES('M' 'F')
+000010191003     A  60                                  DSPATR(PR)
+000011191003     A  97                                  DSPATR(PC)
+000012191003     A                                  6  5'Smoker?'
+000013191003     A            SMOKER         1   B  6 17VALUES('Y' 'N')
+000014191003     A  60                                  DSPATR(PR)
+000015191003     A  98                                  DSPATR(PC)
+000016191003
+000017191003     A                                  7  5'Coverage'
+000018191003     A                                  4  5'Birth Date:'
+000019191003     A            COVERAGE       1Y 0B  7 17RANGE(1 9)
+000020191003     A  60                                  DSPATR(PR)
+000021191003     A                                  5 20'M/F'
+000022191003     A                                  6 20'Y/N'
+000023191003     A                                  7 29'For a multiple of 25000'
+000024191003     A  98                              6 29'Smoker Must Not Be Blank'
+000025191003     A  97                              5 29'Gender Must Not Be Blank'
+000026191003     A                                  2  3'Behnam Ghafouri'
+000027191003     A          R INSQUOTE
+000028191003     A                                      OVERLAY
+000029191003     A                                      CF03(03 'Exit Program')
+000030191003     A                                 12  6'Age'
+000031191003     A                                 12 32'Payout'
+000032191003     A                                 11 17'Monthly'
+000033191003     A            AGE            3  0O 14  6EDTCDE(1)
+000034191003     A            MPREMIUM       5  2O 14 17EDTCDE(1)
+000035191003     A            COVERAMT       9  0O 14 31EDTCDE(1)
+000036191003     A                                 12 17'Premium'
+000037191003     A                                 12 47'Comment'
+000038191003     A            COMMENT       25   O 14 47TEXT('age out of coverage range')
+000039191003     A  99                                  DSPATR(RI)
+000040191003     A                                 21  7'F3 - Exit'
+000041191003     A

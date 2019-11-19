@@ -1,0 +1,15 @@
+000100190912     A                                      UNIQUE
+000101190912     A          R STUDENTSR                 TEXT('STUDENTS REGISTER')
+000102190912     A            STUDENTNO      9S 0       COLHDG('STUDENT' 'NUMBER')
+000105190912     A            FIRSTNAME     15          COLHDG('FIRST NAME')
+000106190912     A            LASTNAME      20          COLHDG('LAST NAME')
+000107190912     A            BIRTHDATE       L
+000109190912     A            PHONE         10S         COLHDG('PHONE' 'NUMBER')
+000110190912     A            ADDRESS       30          COLHDG('STREET' 'ADDRESS')
+000111190912     A            CITY          15
+000112190912     A            PROVINCE       2          COLHDG('PROV' 'CODE')
+000113190912     A
+000115190912     A            POSTALCODE     6          COLHDG('POSTAL' 'CODE')
+000116190912     A            FEESOWED       7P 2       COLHDG('FEES' 'OWED')
+000117190912     A            FINESOWED      7P 2       COLHDG('FINES' 'OWED')
+000119190912     A          K STUDENTNO

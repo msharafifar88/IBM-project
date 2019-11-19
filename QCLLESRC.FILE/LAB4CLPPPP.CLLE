@@ -1,0 +1,24 @@
+000100191004  /*********************************************************************/           dclf       lab4dsp
+000101191004             sndrcvf
+000102191004             dowhile    (&in03='0')
+000103191004                select
+000104191004                   when       (&option = '1' *or&option ='01') callsubr option1
+000105191004                   whe(&option ='2' *or &option ='02') callsubr option2
+000106191004WHEN(&OPTION ='3' *OR &OPTION='03')DO
+000107191004   DSPLIB
+000108191004ENDDO
+000109191004WHEN       (&OPTION ='4' *OR &OPTION ='04')DSPLLIB
+000110191004WHEN       (&OPTION ='5' *OR &OPTION='05')DSPLLIB
+000111191004OTHERWISE  DO
+000112191004   CHGVAR     &IN30='1'
+000113191004
+000114191004ENDDO
+000115191004                ENDSELECT
+000116191004                SNDRCVF
+000117191004             ENDDO
+000118191004             SUBR       OPTION1
+000119191004                DSPLLIB
+000120191004
+000121191004
+000122191004
+000123191004
